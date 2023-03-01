@@ -35,8 +35,7 @@ class AmphibiansViewModel : ViewModel() {
     private fun getMarsPhotos() {
         viewModelScope.launch {
             amphibianUiState = try {
-                val listResult = AmphibiansApi.retrofitService.getAmphibians()
-                AmphibianUiState.Success(listResult)
+                AmphibianUiState.Success(AmphibiansApi.retrofitService.getAmphibians())
             } catch (e: IOException) {
                 AmphibianUiState.Error
             }

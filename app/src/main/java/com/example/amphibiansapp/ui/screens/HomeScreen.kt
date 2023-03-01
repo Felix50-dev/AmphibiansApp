@@ -5,10 +5,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -37,9 +34,8 @@ fun HomeScreen(
 @Composable
 fun AmphibiansApp(amphibians: List<Amphibian>) {
     Scaffold(
-        topBar = {
-            AmphibianTopAppBar()
-        }
+        modifier = Modifier.fillMaxSize(),
+        topBar = { TopAppBar(title = { Text(stringResource(R.string.app_name)) }) }
     ) { padding ->
         LazyColumn(
             modifier = Modifier
@@ -89,21 +85,6 @@ fun AmphibiansAppCard(modifier: Modifier = Modifier, amphibian: Amphibian) {
 }
 
 @Composable
-fun AmphibianTopAppBar(modifier: Modifier = Modifier) {
-    Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .background(color = MaterialTheme.colors.primary),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Text(
-            text = stringResource(id = R.string.app_name),
-            style = MaterialTheme.typography.h1
-        )
-    }
-}
-
-@Composable
 fun LoadingScreen(modifier: Modifier = Modifier) {
     Box(
         contentAlignment = Alignment.Center,
@@ -130,5 +111,5 @@ fun ErrorScreen(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 fun AmphibiansAppCardPreview() {
-    //AmphibiansAppCard()
+    AmphibiansAppCard(modifier = Modifier, amphibian = Amphibian("Great Basin Spadefoot","Toad","This toad spends most of its life underground due to the arid desert conditions in which it lives. Spadefoot toads earn the name because of their hind legs which are wedged to aid in digging. They are typically grey, green, or brown with dark spots.","https://developer.android.com/codelabs/basic-android-kotlin-compose-amphibians-app/img/great-basin-spadefoot.png"))
 }
