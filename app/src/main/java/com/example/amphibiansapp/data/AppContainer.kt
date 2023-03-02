@@ -21,7 +21,7 @@ class DefaultAppContainer: AppContainer {
         .baseUrl(BASE_URL)
         .build()
 
-    val retrofitService : AmphibiansApiService by lazy {
+    private val retrofitService : AmphibiansApiService by lazy {
         retrofit.create(AmphibiansApiService::class.java)
     }
 

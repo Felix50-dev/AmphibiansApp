@@ -73,4 +73,7 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1"
     // For status bar
     implementation "com.google.accompanist:accompanist-systemuicontroller:0.27.0"
+    //for tests
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1'
 }
