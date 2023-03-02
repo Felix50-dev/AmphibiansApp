@@ -71,4 +71,6 @@ dependencies {
 
     // Kotlin serialization
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1"
+    // For status bar
+    implementation "com.google.accompanist:accompanist-systemuicontroller:0.27.0"
 }

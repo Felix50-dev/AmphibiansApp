@@ -7,12 +7,6 @@ import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
 import retrofit2.http.GET
 
-private const val BASE_URL = " https://android-kotlin-fun-mars-server.appspot.com"
-
-private val retrofit: Retrofit = Retrofit.Builder()
-    .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
-    .baseUrl(BASE_URL)
-    .build()
 
 interface AmphibiansApiService {
 
@@ -24,10 +18,4 @@ interface AmphibiansApiService {
     @GET("amphibians")
     suspend fun getAmphibians(): List<Amphibian>
 
-}
-
-object AmphibiansApi {
-    val retrofitService : AmphibiansApiService by lazy {
-        retrofit.create(AmphibiansApiService::class.java)
-    }
 }
